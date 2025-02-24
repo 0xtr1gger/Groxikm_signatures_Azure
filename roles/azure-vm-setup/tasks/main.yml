@@ -1,0 +1,23 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for api-setup
+
+- name: Install Docker
+  import_tasks:
+    file: ./install_docker.yml
+
+- name: Configure and start Docker
+  import_tasks:
+    file: ./docker_config.yml
+
+- name: Start Docker container for the API
+  import_tasks:
+    file: ./docker_run.yml
+
+- name: Install, configure, and start Nginx
+  import_tasks:
+    file: ./nginx.yml
+
+- name: Install certbot
+  import_tasks:
+    file: ./certbot.yml

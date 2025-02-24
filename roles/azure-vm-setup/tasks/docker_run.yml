@@ -1,0 +1,22 @@
+---
+#- name: Ensure no containers are left
+#  shell: docker container prune --force
+
+- name: Ensure no containers are left
+  docker_container:
+    name: "{{ container_name }}"
+    state: absent  # this removes the container if it exists
+
+#- name: Start Docker container with the API
+#  shell: docker run -e DB_CONNECTION_STRING -e SECRET_KEY -p 5000:5000 {{ docker_image }}:{{ docker_tag }} # 0xtr1gger/grox_signatures:v1.0
+#  environment: "{{ env_vars }}"
+
+- name: Start Docker container with the API
+  docker_container:
+    name: "{{ container_name }}"
+    image: "{{ docker_image }}:{{ docker_tag }}"
+    env: "{{ env_vars }}"
+    state: started
+    published_ports:
+      - "5000:5000"
+  environment: "{{ env_vars }}"

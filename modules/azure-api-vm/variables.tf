@@ -126,7 +126,7 @@ variable "nsg_config" {
         protocol  = "Tcp"
 
         source_port_range      = "*"
-        destination_port_range = "80"
+        destination_port_range = "443"
 
         source_address_prefix      = "*"
         destination_address_prefix = "*"

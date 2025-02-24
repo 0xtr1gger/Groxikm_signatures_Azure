@@ -1,0 +1,26 @@
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Start and enable Nginx
+  service:
+    name: nginx
+    state: started
+    enabled: true
+    
+- name: Configure Nginx
+  template:
+    src: default.conf.j2
+    dest: /etc/nginx/sites-available/default
+
+- name: Test Nginx configuration
+  command: nginx -t
+  become: true
+
+- name: Restart Nginx
+  systemd:
+    name: nginx
+    state: restarted
+  become: true
