@@ -1,0 +1,17 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for azure-vm-setup
+
+docker_image: "0xtr1gger/grox_signatures"
+docker_tag: "v1.0"
+
+container_name: "flask_api"
+
+app_port: 5000
+nginx_port: 80
+
+ansible_user_name: 'ansible'
+
+env_vars:
+  DB_CONNECTION_STRING: ''
+  SECRET_KEY: ''
