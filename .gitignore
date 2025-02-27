@@ -1,6 +1,7 @@
 
 **/*.db
-**/vars/*
+roles/azure-vm-setup/vars/main.yml
+
 
 ## Terraform ##
 
